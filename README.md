@@ -14,3 +14,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 
 
+[Grabación de pantalla 2025-03-30 a las 8.21.37 p. m.webm](https://github.com/user-attachments/assets/2a43e630-c7c8-44ae-b76f-52415223ea90)
