@@ -5,6 +5,7 @@ import SplitType from "split-type";
 window.addEventListener('load', () => {
     const title1 = document.querySelector('.title1');
     const title2 = document.querySelector('.title2');
+    const card = document.querySelector('.card');
     const splitTitle1 = new SplitType(title1);
     const splitTitle2 = new SplitType(title2);
 
@@ -28,4 +29,11 @@ window.addEventListener('load', () => {
             },
             // ease: 'back.out'
         }, '<')
+        .from(card, {
+            scale: 0,
+            duration: 1.9,
+            transformOrigin: 'top right',
+            ease: 'power2.inOut'
+        }, '<')
+
 });
