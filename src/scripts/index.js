@@ -1,14 +1,17 @@
 import gsap from "gsap";
 import SplitType from "split-type";
+import { ImageRepetition } from "./ImageRepetition";
 
 
 window.addEventListener('load', () => {
     const title1 = document.querySelector('.title1');
     const title2 = document.querySelector('.title2');
     const card = document.querySelector('.card');
+    const imagen = document.querySelector('.imagen');
     const splitTitle1 = new SplitType(title1);
     const splitTitle2 = new SplitType(title2);
 
+    new ImageRepetition(imagen);
 
     const tl = gsap.timeline();
 
@@ -31,9 +34,10 @@ window.addEventListener('load', () => {
         }, '<')
         .from(card, {
             scale: 0,
-            duration: 1.9,
+            duration: 3.7,
             transformOrigin: 'top right',
-            ease: 'power2.inOut'
-        }, '<')
+            ease: 'power2.inOut',
+            delay: 0.5,
+        }, '<');
 
 });

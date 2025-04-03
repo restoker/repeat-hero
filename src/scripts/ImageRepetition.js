@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-export class ImageRepetitionHover {
+export class ImageRepetition {
     // DOM elements
     DOM = {
         // main element (.image)
@@ -23,8 +23,10 @@ export class ImageRepetitionHover {
         this.DOM = { el: DOM_el };
         // console.log(this.DOM.el);
         // Get bg image url
-        this.bgImage = /(?:\(['"]?)(.*?)(?:['"]?\))/.exec(this.DOM.el.style.backgroundImage)[1];
-        // console.log(this.bgImage);
+        // this.bgImage = /(?:\(['"]?)(.*?)(?:['"]?\))/.exec(this.DOM.el.style.backgroundImage)[1];
+        // this.bgImage = /(?:\(['"]?)(.*?)(?:['"]?\))/.exec(this.DOM.el.style.backgroundImage)[1];
+        this.bgImage = this.DOM.el.dataset.image;
+
         // Remove bg image
         gsap.set(this.DOM.el, { backgroundImage: 'none' });
 
@@ -56,19 +58,23 @@ export class ImageRepetitionHover {
     createHoverTimeline() {
         const property = this.DOM.el.dataset.repetitionAnimate || 'scale';
         let animationProperties = {
-            duration: this.DOM.el.dataset.repetitionDuration || 0.8,
+            duration: this.DOM.el.dataset.repetitionDuration || 1.9,
             ease: this.DOM.el.dataset.repetitionEase || 'power2.inOut',
-            stagger: this.DOM.el.dataset.repetitionStagger || -0.1
-        },
-            firstInnerElementProperties = {};
+            stagger: this.DOM.el.dataset.repetitionStagger || -0.1,
+            // scale: 1,
+            // repeat: -1,
+            opacity: 0
+        }
+        let firstInnerElementProperties = {};
 
-        animationProperties[property] = i => +!i;
+        // animationProperties[property] = i => +!i;
         // initial scale of first inner element
         firstInnerElementProperties[property] = this.DOM.el.dataset.repetitionInitialScale || 2;
 
-        this.hoverTimeline = gsap.timeline({ paused: true })
+        // console.log(firstInnerElementProperties);
+        this.hoverTimeline = gsap.timeline()
             .set(this.DOM.innerElems[0], firstInnerElementProperties)
-            .to([this.DOM.innerElems], animationProperties, 0)
+            .from([this.DOM.innerElems], { scale: 0, stagger: 0.65, opacity: 0, duration: 2 }, 0)
     }
 
     /**
@@ -77,8 +83,11 @@ export class ImageRepetitionHover {
     initEvents() {
         this.onMouseEnterFn = () => this.mouseEnter();
         this.onMouseLeaveFn = () => this.mouseLeave();
-        this.DOM.el.addEventListener('mouseenter', this.onMouseEnterFn);
-        this.DOM.el.addEventListener('mouseleave', this.onMouseLeaveFn);
+        // this.DOM.el.addEventListener('mouseenter', this.onMouseEnterFn);
+        // this.DOM.el.addEventListener('mouseleave', this.onMouseLeaveFn);
+        this.mouseEnter()
+        // this.onMouseEnterFn();
+        // this.onMouseLeaveFn();
     }
 
     /**
