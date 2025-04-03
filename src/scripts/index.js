@@ -34,10 +34,11 @@ window.addEventListener('load', () => {
         }, '<')
         .from(card, {
             scale: 0,
-            duration: 3.7,
+            duration: 3.1,
             transformOrigin: 'top right',
             ease: 'power2.inOut',
-            delay: 0.5,
+            delay: 0.2,
+            transform: 'translate(10px)'
         }, '<');
 
 });
