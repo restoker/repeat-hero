@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
     const title2 = document.querySelector('.title2');
     const card = document.querySelector('.card');
     const imagen = document.querySelector('.imagen');
+    const cardImage = document.querySelector('.card__image');
     const splitTitle1 = new SplitType(title1);
     const splitTitle2 = new SplitType(title2);
 
@@ -17,17 +18,19 @@ window.addEventListener('load', () => {
 
     tl
         .from(splitTitle1.chars, {
+            duration: 3,
             yPercent: -100,
             stagger: {
-                each: 0.2,
+                each: 0.4,
                 from: 'start',
             },
-            // ease: 'back.out'
+            // ease: 'sine.in'
         })
         .from(splitTitle2.chars, {
+            duration: 3,
             yPercent: 100,
             stagger: {
-                each: 0.2,
+                each: 0.4,
                 from: 'end',
             },
             // ease: 'back.out'
@@ -38,7 +41,11 @@ window.addEventListener('load', () => {
             transformOrigin: 'top right',
             ease: 'power2.inOut',
             delay: 0.2,
-            transform: 'translate(10px)'
-        }, '<');
+        }, '<')
+        .from(cardImage, {
+            duration: 1.3,
+            scale: 1.3,
+            transformOrigin: '95% 50%',
+        }, '>-=0.9')
 
 });
