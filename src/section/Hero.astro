@@ -2,12 +2,21 @@
 
 ---
 
-<div class="bg-zinc-950 flex h-full">
+<div class="bg-zinc-950 flex h-full loading principal">
     <!-- image repeat section -->
-    <section class="w-1/2 relative flex justify-center items-center">
+    <section
+        class="w-1/2 relative flex justify-center items-center mix-blend-difference"
+    >
+        <p
+            class="text-presenter absolute top-10 left-10 z-10 w-[30svw] text-white"
+        >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Exercitationem nemo non, tempora ad voluptas quis repellat obcaecati
+            tempore ipsa et illo illum voluptate vero inventore ea.
+        </p>
         <div
             class="absolute inset-0 z-0 object-cover w-full h-full imagen object-center"
-            data-image="/img/bg2.webp"
+            data-image="/img/imagen.webp"
             data-repetition-elems="6"
             data-repetition-stagger="-0.49"
             data-repetition-initial-scale="0.3"
@@ -17,7 +26,7 @@
             class="relative object-cover w-2/5 h-80 aspect-square border-gray-100/20 card overflow-hidden"
         >
             <img
-                src="/img/bg2.webp"
+                src="/img/imagen.webp"
                 class="h-full w-full object-cover card__image"
                 alt=""
             />
@@ -46,7 +55,7 @@
 
 <style>
     .imagen {
-        background-image: url("/img/bg1.webp");
+        /* background-image: url("/img/bg1.webp"); */
         margin: 0 auto;
         display: grid;
         background-size: cover;
